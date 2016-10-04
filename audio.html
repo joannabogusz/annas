@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+	  <title>Audio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--link rel="stylesheet" type="text/css" href="font.css" /-->
+    <link rel="stylesheet" type="text/css" href="lib/howler.styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    
+</head>
+<body>
+    
+    <!-- Header (same on all pages) -->
+    <div class="custom-logo-container">
+      <h1>ANNA SIEK</h1>
+      <hr class="custom-logo-bar" />
+      <h2 data-i18n="WYSOKI POZIOM AKTORSTWA">WYSOKI POZIOM AKTORSTWA</h2>
+      <p data-i18n="METR OSIEMDZIESIAT CZTERY">METR OSIEMDZIESIAT CZTERY</p>
+      <hr class="custom-logo-bar" />
+    </div>
+    <div class="custom-navigation-container">
+      <ul>
+        <li><a data-i18n="O MNIE" href="index.html">O MNIE</a></li>
+        <li><a data-i18n="WIDEO" href="video.html">WIDEO</a></li>
+        <li><a data-i18n="AUDIO" href="audio.html" class="custom-navigation-active">AUDIO</a></li>
+        <li><a data-i18n="KONTAKT" href="contact.html">KONTAKT</a></li>
+        <li><a data-i18n="CV" href="files/cv.pdf" target="_blank">CV</a></li>
+        <li><a href="javascript:void(0);" onclick="page_changeLanguage()" data-i18n="LANGUAGE">ENGLISH</a></li>
+        <li><a href="javascript:void(0);" onclick="page_swapResponsiveMenu()">&#9776;</a></li>
+      </ul>
+    </div>
+
+    <!-- page content -->
+    <div class="custom-audio-player">
+      
+      <div id="title">
+        <span id="track"></span>
+        <div id="timer">0:00</div>
+        <div id="duration">0:00</div>
+      </div>
+         
+      <div class="controlsOuter">
+        <div class="controlsInner">
+          <div id="loading"></div>
+          <div class="btn" id="playBtn"></div>
+          <div class="btn" id="pauseBtn"></div>
+          <div class="btn" id="prevBtn"></div>
+          <div class="btn" id="nextBtn"></div>
+        </div>
+        <div class="btn" id="playlistBtn"></div>
+        <div class="btn" id="volumeBtn"></div>
+      </div>
+         
+      <div id="waveform">
+        <div id="bar"></div>
+        <div id="progress"></div>
+      </div>
+      <div id="playlist">
+      <div id="list"></div>
+
+      <div id="volume" class="fadeout">
+        <div id="barFull" class="bar"></div>
+        <div id="barEmpty" class="bar"></div>
+        <div id="sliderBtn"></div>
+      </div>
+
+    </div>
+
+    <div class="custom-footer-container">
+      <ul>
+        <li><a href="https://www.facebook.com/anna.siek.94" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAABVCAYAAAA49ahaAAAC90lEQVR4Xu3ZMWgTYRgG4O87k6WCujhIVcRVTMTopHTqUjB3dSiCoAiiCOLk4ia4uYsOCiIVx9Y7pF0LoptDUgsOiouDi0IoHUxiPgki0ppL/iT/S6/nmymQ73/J/9yb/Dmiwod3AfWeyEAhKqAERCUqQAAQyaYSFSAAiGRTiQoQAESyqUQFCAAi2VSiAgQAkWwqUQECgEg2lagAAUAkm0pUgAAgkk0lKkAAEMmmEhUgAIhkU/9n1EqlUmxNTl4U1XMqcsrM9otIQVQbatYwkUb3eTMILnxYXPwGsHKO3BFNPR6GUyoyr6qHB+3Mms1D9eXlL4PmkK9nHrUURVU1WxDVggsEUQcolWZmDmqxuCaqe1xAuzNEHSBVDsMHonrTFZSog6WCchR1D5x9g0f/TrCpfbRK1epJDYJ3qSNmr0TkabvT+RSo/vgzt7q+/lFWVtrDXAjfs5k9qMpRdF5EFnpu2OxNLUnO+sbwlZdZ1FK1elWD4EnKRu/U4vi+LwTfOZlFLYfhDVF91GvDHbPrq0ny2DeGr7wdiWoi1+pxnNZiXzYj5xB1ZLr0hUTNI+rR6em9uycmbm3dm4qcVtUwZc8vO2b//NxS1e/1OH4IcBoqctubemJ29oiZfR7qXacMm8jrehxP+cgaJyNfqGbP6klyZRwQH2tzhSoid2txfM8HzDgZ+UI1u1RLkufjgPhYmyvUnyJn3sfxWx8w42TkCrXdah1YW1r6Og6Ij7Xbjipzc7uObWx0/2/a9AgKhcuBau/7e7Pb7Xb7xdY1WQDtvqftR02pRr97f96mjvh5IuqIcP2WEZWomwT4nQooBFGJ+luAp/+ITeBBNSIcT38AHFGJ6izA09+Zyn2QqO5WzpNEdaZyHySqu5XzJFGdqdwHM4vqvoXsTRIVcE2ISlSAACCSTSUqQAAQyaYSFSAAiGRTiQoQAESyqUQFCAAi2VSiAgQAkWwqUQECgEg2lagAAUAkm0pUgAAgkk0lKkAAEMmmEhUgAIj8BYCFImUC9CQXAAAAAElFTkSuQmCC" alt="Facebook"></a></li>
+        <li><a href="https://www.instagram.com/annasiek/" target="_blank"><img src="data:image/png;base64,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" alt="Instagram"></a></li>
+      </ul>
+    </div>
+
+
+    <script type="text/javascript" src="lib/howler.core.js"></script>
+    <script type="text/javascript" src="lib/howler.siriwave.js"></script>
+    <script type="text/javascript" src="lib/howler.player.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
+
